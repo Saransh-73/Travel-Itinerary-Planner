@@ -52,7 +52,8 @@ function Plan() {
       .single();
     if (error || !data) {
       setBusy(false);
-      return toast.error("Couldn't save trip");
+      toast.error("Couldn't save trip");
+      return;
     }
     const res = await gen({ data: { tripId: data.id } }).catch(() => ({ ok: false as const, error: "Generation failed" }));
     if (!res.ok) toast.error(res.error + " Your trip was saved — you can retry from the trip page.");

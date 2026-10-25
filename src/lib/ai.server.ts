@@ -38,7 +38,8 @@ export async function buildItinerary(
 
   try {
     const result = streamText({
-      model: provider.responses("openai/gpt-6-astra"),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      model: provider.responses("openai/gpt-6-astra") as any,
       system:
         "You are an expert travel planner. Create realistic day-wise itineraries with real places, sensible timings, and costs in INR. Group each day's activities by neighbourhood to minimise travel time, order them geographically, and include meals. Respect the budget and vibe.",
       prompt,
